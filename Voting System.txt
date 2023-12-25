@@ -1,0 +1,138 @@
+#include<stdio.h>
+char santhosh=0, surya=0,kalesha=0,mastan=0,somanadh=0;
+void electionResult()
+{
+    int wonByVote;
+    if (santhosh > surya && santhosh > kalesha && santhosh > mastan && santhosh > somanadh)
+    {
+        printf("\n*santhosh won the election*\n\n");
+        printf("Total vote of santhosh: %d\n",santhosh);
+        wonByVote=santhosh-surya;
+        printf("santhosh won by %d votes to surya\n",wonByVote);
+        wonByVote=santhosh-kalesha;
+        printf("santhosh won by %d votes to kalesha\n",wonByVote);
+        wonByVote=santhosh-mastan;
+        printf("santhosh won by %d votes to mastan\n",wonByVote);
+        wonByVote=santhosh-somanadh;
+        printf("santhosh won by %d votes to somanadh\n",wonByVote);
+    }
+    else if (surya > kalesha && surya > mastan && surya > somanadh)
+    {
+        printf("\n*surya won the election*\n\n");
+        printf("Total vote of surya : %d\n",surya);
+        wonByVote=surya-santhosh;
+        printf("surya won by %d votes to santhosh\n",wonByVote);
+        wonByVote=surya-kalesha;
+        printf("surya won by %d votes to kalesha\n",wonByVote);
+        wonByVote=surya-mastan;
+        printf("surya won by %d votes to mastan\n",wonByVote);
+        wonByVote=surya-somanadh;
+        printf("surya won by %d votes to somanadh\n",wonByVote);
+    }
+    else if (kalesha > mastan && kalesha > somanadh)
+    {
+        printf("\n*kalesha won the election*\n\n");
+        printf("Total vote of kalesha : %d\n",kalesha);
+        wonByVote=kalesha-santhosh;
+        printf("kalesha won by %d votes to santhosh\n",wonByVote);
+        wonByVote=kalesha-surya;
+        printf("kalesha won by %d votes to surya\n",wonByVote);
+        wonByVote=kalesha-mastan;
+        printf("kalesha won by %d votes to mastan\n",wonByVote);
+        wonByVote=kalesha-somanadh;
+     
+
+   printf("kalesha won by %d votes to somanadh\n",wonByVote);
+    }
+    else if(mastan > somanadh)
+    {
+        printf("\n*mastan won the election*\n");
+        printf("total vote of mastan : %d\n",mastan);
+        wonByVote=mastan-santhosh;
+        printf("mastan won by %d votes to santhosh\n",wonByVote);
+        wonByVote=mastan-surya;
+        printf("mastan won by %d  votes to surya\n",wonByVote);
+        wonByVote=mastan-kalesha;
+        printf("mastan won by %d votes to kalesha\n",wonByVote);
+        wonByVote=mastan-somanadh;
+        printf("mastan won by %d votes to somanadh\n",wonByVote);
+    }
+    else if(santhosh == surya && santhosh == kalesha && santhosh == mastan && santhosh == somanadh)
+    {
+        printf("\nNo one won the election\n\n");
+        printf("            SANTHOSH---SURYA---KALESHA---MASTAN---SOMANADH\n");
+        printf("Total Vote   %d       %d        %d     %d     %d\n",santhosh,surya,kalesha,mastan,somanadh);
+    }
+    else
+    {
+        printf("\n*somanadh won the election*\n\n");
+        printf("Total vote of somanadh : %d\n",somanadh);
+        wonByVote=somanadh-santhosh;
+        printf("somanadh won by %d votes to santhosh\n",wonByVote);
+        wonByVote=somanadh-surya;
+        printf("somanadh won by %d votes to surya\n",wonByVote);
+        wonByVote=somanadh-kalesha;
+        printf("somanadh won by %d votes to kalesha\n",wonByVote);
+        wonByVote=somanadh-mastan;
+        printf("somanadh won by %d votes to mastan\n",wonByVote);
+    }
+}
+void calculateVote(int vote)
+{
+    switch (vote)
+    {
+    case 1:
+        santhosh+=1;
+        break;
+
+    case 2:
+        surya+=1;
+        break;
+    case 3:
+        kalesha+=1;
+        break;
+    case 4:
+        mastan+=1;
+        break;
+        case 5:
+        somanadh+=1;
+        break;
+    }
+}
+void main()
+{
+    int choose,age,vid;
+    printf("\n*MINI VOTING SYSTEM*\n\n");
+    printf("\t*WELCOME to STUDENT ELECTION*\n\n");
+    do
+    {
+        printf("enter your age\n");
+        scanf("%d",&age);
+        if(age>=18)
+        {
+            printf("Your are eligible for vote\n");
+       printf("enter your voter id");
+    scanf("%d",&vid);
+         printf("Press 1 to vote SANTHOSH⚽\n");
+        printf("Press 2 to vote SURYA🎯\n");
+        printf("Press 3 to vote KALESHA💡\n");
+        printf("Press 4 to vote MASTAN✂\n");
+        printf("press 5 to vote SOMANADH⏳\n");
+        printf("Press 6 to show election result");
+        printf("\nPlease choose : \n");
+        scanf("%d", &choose);
+        }
+        else
+        {
+            printf("Your not eligible for vote\n");
+        }
+        if (choose==6)
+        {
+            electionResult();
+        }else    
+        {
+            calculateVote(choose);            
+        }
+        printf("\n");
+        } while(choose !=6);
+        }
